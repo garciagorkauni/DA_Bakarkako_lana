@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NbaRestapiApplication {
+public class MainProgram {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NbaRestapiApplication.class, args);
+		SpringApplication.run(MainProgram.class, args);
 	}
 
 }
