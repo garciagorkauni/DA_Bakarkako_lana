@@ -22,11 +22,14 @@ Mongo datu-baseko dokumentuak (500 baino gehiago) kanpo iturriren batetik hartut
 
 ### Rest zerbitzua
 
-Mongo Driver Sync liburutegia erabiliko da Mongo datuak atzitzeko eta gutxienez endpoint bat prestatu behar da mota bakoitzetik (GET, POST, PUT, DELETE). Swagger - Open Api Documentation bidez argitaratuko da API, beraz, lau koloreak ikusi behar dira, derrigorrez. Zenbat eta endpoint gehiago eta konplexuagoak hobe, baldin eta zentzuzkoak, interesgarriak eta anitzak badira.
+Mongo Driver Sync liburutegia erabiliko da Mongo datuak atzitzeko eta gutxienez endpoint bat prestatu behar da mota bakoitzetik (GET, POST, PUT, DELETE). Swagger 
+- Open Api Documentation bidez argitaratuko da API, beraz, lau koloreak ikusi behar dira, derrigorrez. Zenbat eta endpoint gehiago eta konplexuagoak hobe, baldin eta zentzuzkoak, interesgarriak eta anitzak badira.
 
 ### Docker
 
-Ez da derrigorra Docker erabiltzea baina puntu gehigarriak lortu daitezke kasu hauetan: - Mongo zerbitzaria ordenagailu lokalean zuzenean instalatu beharrean docker kontainer batean martxan jarriz. - Proiektu osoa kontainerizatuz.
+Ez da derrigorra Docker erabiltzea baina puntu gehigarriak lortu daitezke kasu hauetan: 
+- Mongo zerbitzaria ordenagailu lokalean zuzenean instalatu beharrean docker kontainer batean martxan jarriz. 
+- Proiektu osoa kontainerizatuz.
 
 ### Dokumentazioa
 
