@@ -30,7 +30,7 @@ public class MainController {
 	}
 
 	@DeleteMapping(path = "/deletegame")
-	public ResponseEntity<Void> deleteGame(@RequestParam String gameId) {
+	public ResponseEntity<String> deleteGame(@RequestParam String gameId) {
 		try {
 			gameRepository.deleteByGameId(gameId);
 			return ResponseEntity.ok().build();

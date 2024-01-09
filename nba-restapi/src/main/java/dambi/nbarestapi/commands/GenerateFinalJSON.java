@@ -17,10 +17,10 @@ import java.util.Map;
 
 public class GenerateFinalJSON {
     public static void main(String[] args) throws CsvValidationException {
-        transformAndWriteJSON("C:\\Users\\GORKA\\Desktop\\DA_Bakarkako_lana\\nba-restapi\\src\\main\\resources\\data_source\\games.csv",
-                "C:\\Users\\GORKA\\Desktop\\DA_Bakarkako_lana\\nba-restapi\\src\\main\\resources\\data_source\\teams.csv",
-                "C:\\Users\\GORKA\\Desktop\\DA_Bakarkako_lana\\nba-restapi\\src\\main\\resources\\data_source\\players.csv",
-                "C:\\Users\\GORKA\\Desktop\\DA_Bakarkako_lana\\nba-restapi\\src\\main\\resources\\data_source\\definitive.json");
+        transformAndWriteJSON("C:\\Users\\garcia.gorka\\Documents\\DAM-2\\Datu Atzipena\\DA_Bakarkako_lana\\nba-restapi\\src\\main\\resources\\data_source\\games.csv",
+                "C:\\Users\\garcia.gorka\\Documents\\DAM-2\\Datu Atzipena\\DA_Bakarkako_lana\\nba-restapi\\src\\main\\resources\\data_source\\teams.csv",
+                "C:\\Users\\garcia.gorka\\Documents\\DAM-2\\Datu Atzipena\\DA_Bakarkako_lana\\nba-restapi\\src\\main\\resources\\data_source\\players.csv",
+                "C:\\Users\\garcia.gorka\\Documents\\DAM-2\\Datu Atzipena\\DA_Bakarkako_lana\\nba-restapi\\src\\main\\resources\\data_source\\definitive.json");
     }
 
     // Metodo nagusia datuak eraldatzeko eta JSON fitxategi definitiboa idazteko
