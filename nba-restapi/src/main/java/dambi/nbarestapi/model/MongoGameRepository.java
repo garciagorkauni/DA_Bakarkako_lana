@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -35,13 +36,13 @@ public class MongoGameRepository implements GameRepository {
     // Jolas baten datuak ikusteko metodoa bere ID-a erabiliz
     @Override
     public Game findByGameId(String gameId) {
-        return gamesCollection.find(eq("game_id", gameId)).first();
+        return gamesCollection.find(eq("_id", new ObjectId(gameId))).first();
     }
 
     // Jolas bat kentzeko metodoa bere ID-a erabiliz
     @Override
     public void deleteByGameId(String gameId) {
-        gamesCollection.deleteOne(eq("game_id", gameId));        
+        gamesCollection.deleteOne(eq("_id", new ObjectId(gameId)));        
     }
 
     // Jolas bat gordetzeko metodoa
