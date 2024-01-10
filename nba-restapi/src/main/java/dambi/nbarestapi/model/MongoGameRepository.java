@@ -39,10 +39,22 @@ public class MongoGameRepository implements GameRepository {
         return gamesCollection.find(eq("_id", new ObjectId(gameId))).first();
     }
 
+    // Jolas baten datuak ikusteko metodoa bere data erabiliz
+    @Override
+    public List<Game> findByGameDate(String date) {
+        return gamesCollection.find(eq("game_date", date)).into(new ArrayList<>());
+    }
+
     // Jolas bat kentzeko metodoa bere ID-a erabiliz
     @Override
     public void deleteByGameId(String gameId) {
         gamesCollection.deleteOne(eq("_id", new ObjectId(gameId)));        
+    }
+
+    // Jolas bat kentzeko metodoa bere data erabiliz
+    @Override
+    public void deleteByGameDate(String date) {
+        gamesCollection.deleteMany(eq("game_date", date)); 
     }
 
     // Jolas bat gordetzeko metodoa

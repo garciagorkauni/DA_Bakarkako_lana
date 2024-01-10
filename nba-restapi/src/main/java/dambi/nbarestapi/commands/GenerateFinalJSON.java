@@ -82,7 +82,7 @@ public class GenerateFinalJSON {
                 playersForTeam.add(player);
                 playerCount++;
     
-                if (playerCount >= maxPlayers) {
+                if (playerCount > maxPlayers) {
                     break;  // Gelditu limitera heltzerakoan
                 }
             }
