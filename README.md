@@ -2,10 +2,11 @@
 
 ## Aurkibidea
 1. [Sarrera](#sarrera)
-1. [Datu basea](#db)
-1. [Rest API-a](#rest-api)
-1. [Docker](#docker)
-1. [Dokumentazioa](#dok)
+2. [Datu basea](#db)
+3. [Rest API-a](#rest-api)
+4. [Dokumentazioa](#dok)
+5. [Erabilera](#erabilera)
+6. [Oharrak](#oharrak)
 
 ## Sarrera <a name="sarrera"></a>
 Ebaluazioa honetan ikasi dugun materia berrian (rest API-ak Spring erabilita, db ez-erlazionalak, docker, dokumentazioa Swagger erabilita, ...) oinarrituta, proiektu hau garatu behar izan dugu.
@@ -86,15 +87,38 @@ Azkenik, MainController programa garatu behar da, rest API-ren endpoint desberdi
 | Endpoint  | Funtzioa |
 | ------------- | ------------- |
 | localhost:8081/games/all| Game guztien erregistroak erakutsi.|
-| localhost:8081/games/specificgame?gameId=123| Game zehatz bat erakutsi.|
-| localhost:8081/games/deletegame?gameId=123| Game bat ezabatu.|
-| localhost:8081/games/updatepoints?gameId=123&ptsHome=100&ptsVisitor=200| Game baten emaitzak aldatu.|
-
-## Docker <a name="docker"></a>
-
+| localhost:8081/games/specificgameById?gameId=123| Game zehatz bat erakutsi id-an oinarrituta.|
+| localhost:8081/games/specificgameByDate?date=22-10-2020| Data hori duten game-ak erakutsi.|
+| localhost:8081/games/deleteGameById?gameId=123| Game zehatz bat ezabatu id-an oinarrituta.|
+| localhost:8081/games/deleteGameByDate?date=22-10-2020| Data hori duten game-ak ezabatu.|
+| localhost:8081/games/updatepoints?gameId=123&ptsHome=100&ptsVisitor=200| Game baten puntuazioak aldatu.|
+| localhost:8081/games/updateDate?gameId=123&date=22-10-2020| Game baten data aldatu.|
+| localhost:8081/games/createPlayer?gameId=123&team=0&playerId=5kl879s&playerName=Juan| Game zehatz baten jokalari berri bat gehitu.|
+| localhost:8081/games/newGame?date=22-10-2020&homeTeamAbbr=ABU&visitorTeamAbbr=PAO&ptsHome=100&ptsVisitor=150| Game baten oinarrizko erregistroa sortu|
 
 ## Dokumentazioa <a name="dok"></a>
 Proiektu osoa dokumentatzeko, hurrengo iturriak erabili ditut:
 - **Javadoc**: Java komentarioak egiten programan zehar honen funtzionamendua azaltzen.
 - **Swagger**: Rest-API-a "bere kabuz" dokumentatzeko (zerbitzu bezala).
 - **README**: Readme fitxategi honetan proiektuaren dokumentazio orokorra ondo azaltzen, errepositorioan era bisual batean agertzeko.
+
+## Erabilera <a name="erabilera"></a>
+REST API honen proiektu ososa martxan jartzeko eta funtzio guztiak erabili ahal izateko jarraitu behar diren pausoak hurrengoak dira:
+
+1. **commands** carpeta barruan dagoen **GenerateFinalJson.java** fitxategian, `main()` metodoan `transformAndWriteJSON()` metodora pasatu behar diren ruta absolutuak egokitu proiektua exekutatuko den ekipora.
+2. Ondoren, **GenerateFinalJson.java** fitxategia exekutatzeko prest egongo da, beraz, hori egin. Horrela, **resources/data_source** direktorioan **definitive.json** fitxategia sortuko da.
+3. Behin **definitive.json** fitxategia izanda, gure mongo zerbitzarian (MongoDBCompass, Atlas, edo MongoShell bidez) DB berria sortuko dugu **nba** izenarekin, eta honen barruan egongo den kolekzio bakarra **games** izango da. Azken honetan, sortutako **definitive.json** inportatu behar da.
+4. Aurreko pauso guztiak jarraituta, REST API-a martxan izateko falta den urrats bakarra, **MainProgram** exekutatzea da.
+
+Hona hemen emaitzaren exekuzio adibidea, bideoa ikusteko (mugitu edota gelditu ahal izateko, gif-an klikatu):
+
+<a href="#(ExekuzioBideoa.mp4)">
+<img 
+    src="ExekuzioGif.gif" 
+    width="80%"
+    style="display: block; margin: 0 auto">
+</a>
+
+## Oharrak <a name="oharrak"></a>
+- Datuak eraldatzeko garatu dudan programan (**commands/GenerateFinalJSON.java**), ruta absolutuak erabili ditut, aukera egokiena eta erozoena ez dela jakin arren, ruta erlatiboak erabilita hainbat arazo eduki ditudalako
+- Egokiena, sortzen den JSON definitibo hori errepositorioan gordetzea izan arren, erabili ditudan dataset-ak handiegiak direnez, git errepositorioak ez du ahalbidetzen holakorik igotzen.
