@@ -21,43 +21,43 @@ public class MongoGameRepository implements GameRepository {
     private MongoClient client;
     private MongoCollection<Game> gamesCollection;
 
-    // Methodo honek, dependentziak injektatu ostean exekutatuko da, eta kolekzioarekin konexioa ezarriko du.
+    /** Methodo honek, dependentziak injektatu ostean exekutatuko da, eta kolekzioarekin konexioa ezarriko du */
     @PostConstruct
     void init() {
         gamesCollection = client.getDatabase("nba").getCollection("games", Game.class);
     }
 
-    // Jolas guztien datuak ikusteko metodoa
+    /** Jolas guztien datuak ikusteko metodoa */
     @Override
     public List<Game> findAllGames() {
         return gamesCollection.find().into(new ArrayList<>());
     }
 
-    // Jolas baten datuak ikusteko metodoa bere ID-a erabiliz
+    /** Jolas baten datuak ikusteko metodoa bere ID-a erabiliz */
     @Override
     public Game findByGameId(String gameId) {
         return gamesCollection.find(eq("_id", new ObjectId(gameId))).first();
     }
 
-    // Jolas baten datuak ikusteko metodoa bere data erabiliz
+    /** Jolas baten datuak ikusteko metodoa bere data erabiliz */
     @Override
     public List<Game> findByGameDate(String date) {
         return gamesCollection.find(eq("game_date", date)).into(new ArrayList<>());
     }
 
-    // Jolas bat kentzeko metodoa bere ID-a erabiliz
+    /** Jolas bat kentzeko metodoa bere ID-a erabiliz */
     @Override
     public void deleteByGameId(String gameId) {
         gamesCollection.deleteOne(eq("_id", new ObjectId(gameId)));        
     }
 
-    // Jolas bat kentzeko metodoa bere data erabiliz
+    /** Jolas bat kentzeko metodoa bere data erabiliz */
     @Override
     public void deleteByGameDate(String date) {
         gamesCollection.deleteMany(eq("game_date", date)); 
     }
 
-    // Jolas bat gordetzeko metodoa
+    /** Jolas bat gordetzeko metodoa */
     @Override
     public Game save(Game game) {
         gamesCollection.insertOne(game);

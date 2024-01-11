@@ -25,22 +25,26 @@ public class MainController {
 	private GameRepository gameRepository;
 
 	// GET
+	/** Metodo honek, gordetako game erregistro guztiak bueltatuko du. */
 	@GetMapping(path = "/all")
 	public @ResponseBody Iterable<Game> getAllGames() {
 		return gameRepository.findAllGames();
 	}
 
+	/** Metodo honek, game espezifiko baten erregistroa bueltatuko du bere id-an oinarrituta */
 	@GetMapping(path = "/specificgameById")
 	public @ResponseBody Game getGameById(@RequestParam String gameId) {
 		return gameRepository.findByGameId(gameId);
 	}
 
+	/** Metodo honek, definitutako data duten game-en erregistroak bueltatuko ditu */
 	@GetMapping(path = "/specificgameByDate")
 	public @ResponseBody Iterable<Game> getGameByDate(@RequestParam String date) {
 		return gameRepository.findByGameDate(date);
 	}
 
 	// DELETE
+	/** Mehtodo honek, game espezifiko baten erregistroa ezabatuko du bere id-an oinarrituta */
 	@DeleteMapping(path = "/deleteGameById")
 	public ResponseEntity<String> deleteGame(@RequestParam String gameId) {
 		try {
@@ -53,6 +57,7 @@ public class MainController {
 		}
 	}
 
+	/** Metodo honek, definitutako data duten game-en erregistroak ezabatuko ditu */
 	@DeleteMapping(path = "/deleteGameByDate")
 	public ResponseEntity<String> deleteGameByDate(@RequestParam String date) {
 		try {
@@ -66,6 +71,7 @@ public class MainController {
 	}
 
 	// PUT
+	/** Metodo honek, id-a bitartez definitutako game-aren puntuazioa aldatuko du */
 	@PutMapping(value = "/updatePoints")
 	public Game updatePoints(@RequestParam String gameId, @RequestParam int ptsHome, @RequestParam int ptsVisitor) {
 		Game game = gameRepository.findByGameId(gameId);
@@ -76,6 +82,7 @@ public class MainController {
 		return emaitza;
 	}
 
+	/** Metodo honek, id-a bitartez definitutako game-aren data aldatuko du */
 	@PutMapping(value = "/updateDate")
 	public Game updatePoints(@RequestParam String gameId, @RequestParam String date) {
 		Game game = gameRepository.findByGameId(gameId);
@@ -85,6 +92,7 @@ public class MainController {
 		return emaitza;
 	}
 
+	/** Metodo honek, id-a bitartez definitutako game-an, definitutako team-an (0-Home/1-Visitor), player bat gehituko du */
 	@PutMapping(value = "/createPlayer")
 	public Game updatePoints(@RequestParam String gameId,@RequestParam int team, @RequestParam String playerId, @RequestParam String playerName) {
 		Game game = gameRepository.findByGameId(gameId);
@@ -107,6 +115,7 @@ public class MainController {
 	}
 
 	// POST
+	/** Metodo honek, game baten oinarrizko erregistroa sortuko du */
 	@PostMapping(path = "/newGame")
 	public @ResponseBody String addNewUser(@RequestParam String date, @RequestParam String homeTeamAbbr, @RequestParam String visitorTeamAbbr, @RequestParam int ptsHome, @RequestParam int ptsVisitor) {
 		Team homeTeam = new Team(((int)(Math.random()*100000)), homeTeamAbbr, null, null, null);

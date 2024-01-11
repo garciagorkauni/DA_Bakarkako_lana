@@ -17,6 +17,7 @@ import java.util.Map;
 
 public class GenerateFinalJSON {
     public static void main(String[] args) throws CsvValidationException {
+        // Ruta osoak aldatu behar dira ekipo bakoitzean (ez nuen lortu ruta erlatiboarekin funtzionaraztea)
         transformAndWriteJSON("C:\\Users\\garcia.gorka\\Documents\\DAM-2\\Datu Atzipena\\DA_Bakarkako_lana\\nba-restapi\\src\\main\\resources\\data_source\\games.csv",
                 "C:\\Users\\garcia.gorka\\Documents\\DAM-2\\Datu Atzipena\\DA_Bakarkako_lana\\nba-restapi\\src\\main\\resources\\data_source\\teams.csv",
                 "C:\\Users\\garcia.gorka\\Documents\\DAM-2\\Datu Atzipena\\DA_Bakarkako_lana\\nba-restapi\\src\\main\\resources\\data_source\\players.csv",
