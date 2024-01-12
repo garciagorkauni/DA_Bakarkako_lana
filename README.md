@@ -112,10 +112,27 @@ REST API honen proiektu ososa martxan jartzeko eta funtzio guztiak erabili ahal 
 
 Hona hemen emaitzaren exekuzio adibidea, bideoa ikusteko (mugitu edota gelditu ahal izateko, gif-an klikatu):
 
-<a href="#(ExekuzioBideoa.mp4)">
+### Post + Get
+<a href="./media/execution/PostGetExecution.mp4">
 <img 
-    src="ExekuzioGif.gif" 
-    width="80%"
+    src="./media/execution/PostGetExecution.gif" 
+    width="100%"
+    style="display: block; margin: 0 auto">
+</a>
+
+### Put
+<a href="./media/execution/PutExecution.mp4">
+<img 
+    src="./media/execution/PutExecution.gif" 
+    width="100%"
+    style="display: block; margin: 0 auto">
+</a>
+
+### Delete
+<a href="./media/execution/DeleteExecution.mp4">
+<img 
+    src="./media/execution/DeleteExecution.gif" 
+    width="100%"
     style="display: block; margin: 0 auto">
 </a>
 
